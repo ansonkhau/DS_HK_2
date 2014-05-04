@@ -21,9 +21,10 @@ for line in lines:
   count_lines = count_lines + 1 
 avg_age = total_age/count_lines
 avg_impresion = count/count_lines
-print count
-print avg_age
-print max_age
-print avg_impresion
+
+print 'Total Unique Visitors: ', count
+print 'Average Age: ', avg_age
+print 'Max Age: ', max_age
+print 'Average Clicks per Impressions: ', avg_impresion
 
 ### EOF ###
