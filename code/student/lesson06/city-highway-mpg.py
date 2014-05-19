@@ -20,8 +20,8 @@ cars = read_csv(DATA_DIR + 'cars93.csv')
 car_x = cars._get_numeric_data()
 car_x = car_x.fillna(car_x.mean())
 #Drop y Values
-#car_x = cars.drop(['MPG.highway','MPG.city','Manufacturer','Model','Type','AirBags','DriveTrain','Origin','Make'],1)
-car_x = cars[['EngineSize','Horsepower','RPM','Rev.per.mile','Fuel.tank.capacity','Passengers','Length','Wheelbase','Width','Turn.circle','Weight']]
+car_x = cars.drop(['MPG.highway','MPG.city'],1)
+#car_x = cars[['EngineSize','Horsepower','RPM','Rev.per.mile','Fuel.tank.capacity','Passengers','Length','Wheelbase','Width','Turn.circle','Weight']]
 car_y = cars['MPG.highway']
 
 f,p = f_regression(car_x, car_y.values)  
