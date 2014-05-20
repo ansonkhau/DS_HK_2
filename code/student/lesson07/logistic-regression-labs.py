@@ -24,21 +24,27 @@ beer['Good'] = beer['WR'].apply(good)
 
 beer_type = ['Ale', 'Stout', 'IPA', 'Lager'] 
 
+
+
 beer['Ale'] = beer['Name'].str.contains('Ale')
 beer['Stout'] = beer['Name'].str.contains('Stout')
 beer['IPA'] = beer['Name'].str.contains('IPA')
 beer['Lager'] = beer['Name'].str.contains('Lager')
+
 
 def convertbeer(x):
     if x == True:
         return 1
     else:
         return 0
-  
-beer['Ale'] = beer['Ale'].apply(convertbeer)
-beer['Stout'] = beer['Stout'].apply(convertbeer)
-beer['IPA'] = beer['IPA'].apply(convertbeer)
-beer['Lager'] = beer['Lager'].apply(convertbeer)
+
+for i in beer_type:
+	beer[beer_type[i]] = beer[beer_type[i]].apply(convertbeer)
+
+#beer['Ale'] = beer['Ale'].apply(convertbeer)
+#beer['Stout'] = beer['Stout'].apply(convertbeer)
+#beer['IPA'] = beer['IPA'].apply(convertbeer)
+#beer['Lager'] = beer['Lager'].apply(convertbeer)
 
 from sklearn import linear_model
 logm = linear_model.LogisticRegression(penalty = 'l1')
