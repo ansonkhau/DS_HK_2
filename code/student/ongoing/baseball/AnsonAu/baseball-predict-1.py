@@ -16,9 +16,13 @@ baseball = pd.read_csv(DATA_DIR + 'baseball_training_2011.csv')
 baseball_input = baseball._get_numeric_data()
 
 salary = baseball_input['salary']
+
+#Attempt to clear data with only numeric values not working yet!
+
 #baseball_input = baseball_input.dropna(axis=0)
 #baseball_input = baseball_input.drop(['salary'],1)
 #baseball_input = baseball_input.fillna(0)
+
 baseball_input = baseball_input[['G','G_batting','AB','R','H','X2B','X3B','HR','RBI','SB','CS','BB','SO','IBB','HBP','SH','SF','GIDP','G_old']]
 
 fp_value = feature_selection.univariate_selection.f_regression(baseball_input, salary)
