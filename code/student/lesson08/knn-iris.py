@@ -40,3 +40,26 @@ ind = np.hstack((np.ones(n, dtype=np.bool), np.zeros(len(y)-n,dtype=np.bool)))
 np.random.shuffle(ind)
 x_train, x_test = x[ind], x[ind == False]
 y_train, y_test = y[ind], y[ind == False]
+
+#Loop through each neighbors value from 1 to 51 and append the scores
+scores = []
+for n in n_neighbors:
+	clf = neighbors.KNeighborsClassifier(n)
+	clf.fit(x_train,y_train)
+	scores.append(clf.score(x_test,y_test))
+
+plt.figure(figsize=(20,8))
+plt.plot(n_neighbors, scores, linewidth = 3.0)
+plt.show()
+scores
+
+# Cross Validation
+scores = []
+for k in range(5):
+	#Random shuffle
+	np.random.shuffle(ind)
+	x_train, x_test = x[ind], x[ind == False]
+	y_train, y_test = y[ind], y[ind == False]
+	clf = neighbors.KNeighborsClassifier(11, weights = 'uniform')
+	clf.fit(x_train, y_train)
+	scores.append(clf.score(x_test,y_test))
