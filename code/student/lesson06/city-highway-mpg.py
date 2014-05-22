@@ -35,7 +35,7 @@ cars['Weight_squared'] = cars['Weight']**2
 cars['Weight_cubed'] = cars['Weight'] **3
 cars['Weigh_fourth'] = cars['Weight'] **4
 MPG = cars['MPG.city']
-Weight_poly = [ [w, x, y, z] for w, x,y,z in zip(cars['Weight'].values, cars['Weight_squared'].values,cars['Weight_cubed'],cars['Weigh_fourth'])]
+Weight_poly = [ [w, x ,y, z] for w, x,y,z in zip(cars['Weight'].values, cars['Weight_squared'].values,cars['Weight_cubed'],cars['Weigh_fourth'])]
 
 ridge = linear_model.Ridge()
 ridge.fit(Weight_poly,MPG)

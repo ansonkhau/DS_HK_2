@@ -24,22 +24,23 @@ beer['Good'] = beer['WR'].apply(good)
 
 beer_type = ['Ale', 'Stout', 'IPA', 'Lager'] 
 
+for t in beer_type:
+	beer[t] = beer['Type'].str.contains(t) * 1
+
+#beer['Ale'] = beer['Name'].str.contains('Ale')
+#beer['Stout'] = beer['Name'].str.contains('Stout')
+#beer['IPA'] = beer['Name'].str.contains('IPA')
+#beer['Lager'] = beer['Name'].str.contains('Lager')
 
 
-beer['Ale'] = beer['Name'].str.contains('Ale')
-beer['Stout'] = beer['Name'].str.contains('Stout')
-beer['IPA'] = beer['Name'].str.contains('IPA')
-beer['Lager'] = beer['Name'].str.contains('Lager')
+#def convertbeer(x):
+ #   if x == True:
+  #      return 1
+   # else:
+    #    return 0
 
-
-def convertbeer(x):
-    if x == True:
-        return 1
-    else:
-        return 0
-
-for i in beer_type:
-	beer[beer_type[i]] = beer[beer_type[i]].apply(convertbeer)
+#for i in beer_type:
+#	beer[t] = beer['Type'].apply(convertbeer)
 
 #beer['Ale'] = beer['Ale'].apply(convertbeer)
 #beer['Stout'] = beer['Stout'].apply(convertbeer)
