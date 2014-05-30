@@ -81,7 +81,6 @@ scores
 scores_cv = []
 for k in range(5):
 	#Random Shuffle 
-	
 	x_train, y_test = x[ind], x[ind == False]
 	y_train, y_test = y[ind], y[ind == False]
 	np.random.shuffle(ind)
