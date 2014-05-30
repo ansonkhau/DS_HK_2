@@ -29,7 +29,7 @@ fp_value = feature_selection.univariate_selection.f_regression(baseball_input, s
 p_value = zip(baseball_input.columns.values,fp_value[1])
 p_value_sorted = sorted(p_value,key=lambda x: x[1])
 
-#Since RBI has the lowest P-Value, look into more details
+#Since RBI has the lowest xPP-Value, look into more details
 baseball_input = baseball[baseball['RBI'] > 0]
 rbi = [[x] for x in baseball_input['RBI']]
 salary = baseball_input['salary'].values
